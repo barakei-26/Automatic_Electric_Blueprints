@@ -3,11 +3,10 @@ import comtypes.client
 class Connector:
     def __init__(self):
 
-        self.connection = comtypes.client.GetActiveObject("AutoCAD.Application")
+        self._connection = comtypes.client.GetActiveObject("AutoCAD.Application")
 
-    def connec_to_open_doc(self):
+    @property
+    def connection(self):
+        return self._connection
 
-        acad_connection = self.connection
-
-        return acad_connection
 

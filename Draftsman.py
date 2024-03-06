@@ -1,5 +1,5 @@
 import comtypes.client
-import objects
+import Objects.Circle as Circle
 
 class Draftsman:
 
