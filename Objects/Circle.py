@@ -12,15 +12,7 @@ class Circle:
             self.center = center
             self.radius = radius
 
-    def draw(self, model):
-        center = self.center
-
-        radius = np.float64(self.radius)
-
-        circle_array = array.array('d', [center.x, center.y,0])
-
-        model.AddCircle(circle_array, radius)
-        
+    
 
 
     

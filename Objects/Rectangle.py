@@ -11,17 +11,21 @@ class Rectangle:
             corner_3 = Coord(corner_1.x, corner_1.y + delta_y)
             corner_4 = Coord(corner_1.x + delta_x, corner_1.y)
             self.corners = [corner_1, corner_2, corner_3, corner_4]
+            self.order()
 
     def order(self):
         
         corners = self.corners
         corners[0:] = sorted(corners[0:], key=lambda c:c.y)
+        corners[0:2] = sorted(corners [0:2], key=lambda c:c.x)
         corners[2:] = sorted(corners[2:], key=lambda c: c.x, reverse=True)
         corners.append(corners[0])
         self.corners = corners
+        for corner in corners: 
+            print(corner.x)
+            print(corner.y)
 
     def get_points_array(self):
-        self.order()
         corners =  self.corners
         points = []
 
@@ -33,11 +37,4 @@ class Rectangle:
 
         return points
 
-    def draw(self, model):
-
-        points = self.get_points_array()
-
-        rectangle = model.AddLightweightPolyline(points)
-
-        return rectangle
 

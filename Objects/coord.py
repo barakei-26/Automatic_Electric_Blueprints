@@ -17,6 +17,6 @@ class Coord:
         return delta
         
     def acad_point(self):
-        acad_point = array.array('d',[self.x, self.y])
+        acad_point = array.array('d',[self.x, self.y, 0])
         return acad_point
     

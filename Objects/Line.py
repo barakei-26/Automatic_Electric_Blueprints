@@ -1,4 +1,4 @@
-from coord import Coord
+from Objects.coord import Coord
 class Line:
     def __init__(self, start_point, final_point):
 
@@ -8,6 +8,4 @@ class Line:
             self.start_point = start_point.acad_point()            
             self.final_point = final_point.acad_point()        
         
-    def draw(self, model):
-        line = model.AddLine(self.start_point, self.final_point)
-        return line
+    

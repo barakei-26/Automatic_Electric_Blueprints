@@ -1,6 +1,8 @@
 from Objects.coord import Coord
 from Objects.circle import Circle
 from Objects.rectangle import Rectangle
+from Objects.terminal import Terminal
+from Objects.component import Component
 from connector import Connector
 from draftsman import Draftsman
 
@@ -16,13 +18,13 @@ doc = connection.ActiveDocument
 model_space = doc.ModelSpace
 
 #instantiate draftsman
-draftsman = Draftsman(1)
+draftsman = Draftsman()
 
 #define object
-object = Circle(Coord(0,0), 15)
+object = Component(3)
 
 #draw object
-draftsman.draw(model_space, object)
+draftsman.draw_component(object, model_space)
 
 
 
