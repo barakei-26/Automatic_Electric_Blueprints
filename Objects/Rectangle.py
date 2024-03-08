@@ -8,22 +8,36 @@ class Rectangle:
             raise ValueError("TypeError: Arguments must be coordinates")
         else:
             delta_x, delta_y = corner_1.delta("x",corner_2), corner_1.delta("y",corner_2)
-            corner_3 = Coord(self.corner_1.x, corner_1.y + delta_y)
-            corner_4 = Coord(self.corner_1.x + delta_x, corner_1.y)
+            corner_3 = Coord(corner_1.x, corner_1.y + delta_y)
+            corner_4 = Coord(corner_1.x + delta_x, corner_1.y)
             self.corners = [corner_1, corner_2, corner_3, corner_4]
+
+    def order(self):
+        
+        corners = self.corners
+        corners[0:] = sorted(corners[0:], key=lambda c:c.y)
+        corners[2:] = sorted(corners[2:], key=lambda c: c.x, reverse=True)
+        corners.append(corners[0])
+        self.corners = corners
+
+    def get_points_array(self):
+        self.order()
+        corners =  self.corners
+        points = []
+
+        for corner in corners:
+            points.append(corner.x)
+            points.append(corner.y) 
+        
+        points = array.array('d', points)
+
+        return points
 
     def draw(self, model):
 
-        points = []
-        corner_1 = self.corner_1
-        corner_2 = self.corner_2
-        corner_3 = self.corner_3
-        corner_4 = self.corner_4
+        points = self.get_points_array()
 
+        rectangle = model.AddLightweightPolyline(points)
 
-        #This is the right way to do a polyline
-        points = [2, 4, 4, 2, 6, 4]
-        points = array.array('d',points)
-
-        model.AddLightweightPolyline(points)
+        return rectangle
 

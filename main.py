@@ -1,17 +1,28 @@
 from Objects.coord import Coord
-from Objects.Rectangle import Rectangle
-from Connector import Connector
-import sys
+from Objects.circle import Circle
+from Objects.rectangle import Rectangle
+from connector import Connector
+from draftsman import Draftsman
 
+
+
+#start connection to Autocad
 connection = Connector().connection
 
+# get active document
 doc = connection.ActiveDocument
 
+# get model space from active document
 model_space = doc.ModelSpace
 
-rectangle = Rectangle(Coord(0,0), Coord(6,10))
+#instantiate draftsman
+draftsman = Draftsman(1)
 
-rectangle.draw(model_space)
+#define object
+object = Circle(Coord(0,0), 15)
+
+#draw object
+draftsman.draw(model_space, object)
 
 
 

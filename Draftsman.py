@@ -1,10 +1,10 @@
 import comtypes.client
-import Objects.Circle as Circle
+import Objects.circle 
 
 class Draftsman:
 
     def __init__(self,id):
         self.id = id
 
-    def draw(model, object):
+    def draw(self, model, object):
         object.draw(model)
