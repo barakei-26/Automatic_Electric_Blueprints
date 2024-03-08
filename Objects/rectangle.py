@@ -21,9 +21,7 @@ class Rectangle:
         corners[2:] = sorted(corners[2:], key=lambda c: c.x, reverse=True)
         corners.append(corners[0])
         self.corners = corners
-        for corner in corners: 
-            print(corner.x)
-            print(corner.y)
+     
 
     def get_points_array(self):
         corners =  self.corners
