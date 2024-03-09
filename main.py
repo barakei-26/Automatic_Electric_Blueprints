@@ -5,26 +5,24 @@ from Objects.terminal import Terminal
 from Objects.component import Component
 from connector import Connector
 from draftsman import Draftsman
+from csv_reader import Csv_reader
 
 
 
 #start connection to Autocad
 connection = Connector().connection
-
-# get active document
 doc = connection.ActiveDocument
-
-# get model space from active document
 model_space = doc.ModelSpace
-
-#instantiate draftsman
 draftsman = Draftsman()
 
-#define object
-object = Component(3)
+#get the list of components from csv file
+csv_reader = Csv_reader('terminals.csv')
 
-#draw object
-draftsman.draw_component(object, model_space)
+components = csv_reader.get_component_list()
+
+for component in components:
+    draftsman.draw_component(component, model_space)
+
 
 
 

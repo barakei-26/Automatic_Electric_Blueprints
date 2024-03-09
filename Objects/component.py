@@ -8,13 +8,14 @@ class Component:
     def __init__(self,number_of_terminals):
 
         self.number_of_terminals = number_of_terminals
-        self.box = self.create_box()
+        spacer = Spacer()
+        left_down_corner = spacer.get_available_place()
+        self.box = self.create_box(left_down_corner)
         self.terminals = self.create_terminals()
 
-
-    def create_box(self):
+    def create_box(self, left_down_corner):
         box_hihgt = 2*5*(1.5*self.number_of_terminals)
-        box = Rectangle(Coord(0,0), Coord(120,box_hihgt))
+        box = Rectangle(left_down_corner, Coord(120,box_hihgt))
         return box
 
     def create_terminals(self):
