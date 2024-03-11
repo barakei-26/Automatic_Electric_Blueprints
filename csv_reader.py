@@ -1,14 +1,6 @@
 import pandas as pd
 from Objects.component import Component
-
-
-doc = pd.read_csv("terminals.csv")
-
-terminals = doc['number of terminals']
-
-print(terminals)
-
-
+from spacer import Spacer
 
 class Csv_reader:
    
@@ -18,10 +10,12 @@ class Csv_reader:
    def get_component_list(self):
         
         list_of_terminals_numbers = self.doc['number of terminals']
+        spacer = Spacer()
         components = []
 
         for number_of_terminals in list_of_terminals_numbers:
-            components.append(Component(number_of_terminals))
+            components.append(Component(number_of_terminals, spacer))
+
 
         return components
 
