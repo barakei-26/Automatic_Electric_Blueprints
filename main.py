@@ -20,8 +20,6 @@ csv_reader = Csv_reader('terminals.csv')
 
 components = csv_reader.get_component_list()
 
-components = sorted(components, key=lambda c:c.number, reverse=True)
-
 for component in components:
     draftsman.draw_component(component, model_space)
         

@@ -13,6 +13,7 @@ class Spacer:
             left_down_corner = Coord(0,0)
             self.last_left_down_corner = left_down_corner
             self.last_box_height = 2*5*1.5*number_of_terminals
+            self.is_first_component = False
 
         else:
 
